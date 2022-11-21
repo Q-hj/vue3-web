@@ -1,0 +1,40 @@
+@import url(./base.css);
+@import url(./common.less);
+
+.van-icon {
+    padding: 0 5px;
+}
+
+.van-popup__close-icon--top-right {
+    top: 1rem;
+    right: 1rem;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+// 天地图
+@window-bg: rgba(183, 24, 20, 0.9);
+
+.tdt-infowindow-content-wrapper,
+.tdt-infowindow-tip {
+    background-color: @window-bg;
+}
+
+.tdt-infowindow-content-wrapper {
+    border-radius: 10px;
+}
+
+.tdt-infowindow-content p {
+    margin: 10px 0;
+    color: #fff;
+}
+
+// 隐藏天地图logo
+.tdt-control-copyright.tdt-control {
+    div {
+        display: none;
+    }
+}

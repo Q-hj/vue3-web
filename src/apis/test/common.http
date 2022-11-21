@@ -1,0 +1,9 @@
+@baseUrl=http://124.222.90.238:8082
+ 
+
+### 场馆的评论列表
+GET  {{baseUrl}}/mini/commentList
+
+{
+    "pavilionId":1
+}

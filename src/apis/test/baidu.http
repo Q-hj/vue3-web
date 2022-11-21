@@ -1,0 +1,14 @@
+@baseApi=https://aip.baidubce.com
+
+
+### 获取token
+POST {{baseApi}}/oauth/2.0/token?grant_type=client_credentials&client_id=0MI3ZncdI0UY2paKl8C1ogqA&client_secret=ONM6EbZT9w5ArAgnOsnP26GUahS5VevL
+
+### 文字审核
+POST  {{baseApi}}/rest/2.0/solution/v1/text_censor/v2/user_defined?access_token=
+content-type: application/x-www-form-urlencoded
+
+{
+  
+    "text":"不要侮辱伟大的乐侃",
+}

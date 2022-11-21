@@ -1,0 +1,15 @@
+.title {
+    position: relative;
+    color: #2d312b;
+
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        bottom: 4px;
+        width: 2em;
+        height: 6px;
+        background: linear-gradient(to right, #ff0707, transparent);
+    }
+}
