@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-11-21 22:25:53
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-21 23:09:39
+ * @LastEditTime: 2022-11-21 23:33:30
  * @Description:
  */
 import { resolve } from 'path';
@@ -17,6 +17,8 @@ import Components from 'unplugin-vue-components/vite';
 import AutoImport from 'unplugin-auto-import/vite';
 
 import importsListen, { imports } from 'vite-plugin-vue-autoimportconfigextend';
+
+import { ArcoResolver } from 'unplugin-vue-components/resolvers';
 
 import { proxy } from '#/vite/proxy';
 
@@ -50,6 +52,12 @@ export default defineConfig(({ command, mode }) => {
 			WindiCSS(),
 			Components({
 				dts: 'types/components.d.ts',
+
+				resolvers: [
+					ArcoResolver({
+						sideEffect: true,
+					}),
+				],
 			}),
 			// 监听imports配置的路径文件变化，触发服务重启（重新生成声明文件）
 			importsListen(),
@@ -57,6 +65,8 @@ export default defineConfig(({ command, mode }) => {
 			AutoImport({
 				// dts: true,
 				dts: 'types/auto-imports.d.ts', // 可以自定义文件生成的位置，默认是根目录下
+
+				resolvers: [ArcoResolver()],
 
 				imports: imports(
 					'vue',
@@ -69,7 +79,6 @@ export default defineConfig(({ command, mode }) => {
 					// { target: 'utils', include: ['common.js'] },
 					// { target: 'store' }
 				),
-				resolvers: [],
 			}),
 		],
 		css: {
