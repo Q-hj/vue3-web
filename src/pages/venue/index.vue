@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-09-30 11:23:23
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-29 14:11:08
+ * @LastEditTime: 2022-11-29 14:38:28
  * @Description: 首页
 -->
 <script lang="ts" setup>
@@ -34,7 +34,7 @@
 	<section>
 		<MyMap
 			ref="map"
-			class="h-80vw"
+			class="h-100vh"
 			:makers="venueList"
 		/>
 		<div class="warp">

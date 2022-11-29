@@ -1,21 +1,19 @@
 <!--
  * @Date: 2022-09-30 09:35:09
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-02 10:47:10
+ * @LastEditTime: 2022-11-29 14:37:02
  * @Description: 主视图
 -->
 
 <template>
-	<div>
-		<router-view
-			class="router-view"
-			v-slot="{ Component }"
-		>
-			<transition :name="state.transitionName">
-				<component :is="Component" />
-			</transition>
-		</router-view>
-	</div>
+	<router-view
+		class="router-view"
+		v-slot="{ Component }"
+	>
+		<transition :name="state.transitionName">
+			<component :is="Component" />
+		</transition>
+	</router-view>
 </template>
 
 <script setup lang="ts">
@@ -46,7 +44,9 @@
 	}
 	.router-view {
 		width: 100%;
-		height: auto;
+		/* width: 1200px; */
+		padding: 0 calc((100% - 1200px) / 2);
+		margin: 0 auto;
 		position: absolute;
 		top: 0;
 		bottom: 0;

@@ -1,25 +1,50 @@
 /*
  * @Date: 2022-08-15 10:18:29
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-09-30 11:51:31
+ * @LastEditTime: 2022-11-29 15:10:40
  * @Description: 路由配置
  */
 import { createRouter, createWebHistory } from 'vue-router';
-import NProgress from 'nprogress'; // progress bar
+import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
+// 引入展馆所有页面
+const venuePages = import.meta.glob('@/pages/venue/*.vue');
+
+const venueRoutes = Object.values(venuePages).map((importFn) => ({
+	path: '/' + importFn.name.split('/').at(-1).split('.')[0],
+	component: importFn,
+}));
+
+console.log(venueRoutes);
 NProgress.configure({ showSpinner: false });
 
-import routes from './routes';
 const router = createRouter({
 	history: createWebHistory(),
-	routes,
+	routes: [
+		{
+			path: '/login',
+			name: '登录',
+			component: () => import('@/pages/venue/index.vue'),
+		},
+		{
+			path: '/layout',
+			name: '数字展馆',
+			component: () => import('@/pages/venue/index.vue'),
+			children: venueRoutes,
+		},
+		{
+			path: '/:pathMatch(.*)*',
+			name: '404',
+			redirect: '/index',
+		},
+	],
 });
 
 //路由跳转开始
 router.beforeEach((to: any, from) => {
-	// console.log(to);
-	document.title =  to.name;
+	if (to.name) document.title = to.name;
+
 	NProgress.start();
 	// instead of having to check every route record with
 	// to.matched.some(record => record.meta.requiresAuth)

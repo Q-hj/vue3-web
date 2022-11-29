@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-09-27 14:13:32
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-10-08 11:26:25
+ * @LastEditTime: 2022-11-29 14:29:04
  * @Description:
  */
 import { defineConfig } from 'windicss/helpers';
@@ -16,11 +16,16 @@ export default defineConfig({
 	theme: {
 		extend: {
 			screens: {
-				sm: '640px',
-				md: '768px',
-				lg: '1024px',
-				xl: '1280px',
-				'2xl': '1536px',
+				sm: '4000px',
+				md: '4000px',
+				lg: '4000px',
+				xl: '4000px',
+				'2xl': '4000px',
+				// sm: '640px',
+				// md: '768px',
+				// lg: '1024px',
+				// xl: '1280px',
+				// '2xl': '1536px',
 			},
 			colors: {
 				blue: colors.sky,
