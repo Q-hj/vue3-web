@@ -1,27 +1,28 @@
 /*
  * @Date: 2022-08-10 14:19:08
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-03 10:15:09
+ * @LastEditTime: 2022-11-29 11:52:34
  * @Description: 请求的封装
  */
 
 import axios, { AxiosRequestConfig } from 'axios';
-import { Toast } from 'vant';
+import { Message } from '@arco-design/web-vue';
+// import { Toast } from 'vant';
 // import { ElMessage } from 'element-plus';
 
 import { proxyList, Proxy, ProxyUrl } from '../../config/vite/proxy';
 
-const baseURL = import.meta.env.VITE_APP_BASE_API; //⭕
-
-const Message = {
-	success: Toast.success,
-	error: Toast.fail,
-};
+// const Message = {
+// 	success: Toast.success,
+// 	error: Toast.fail,
+// };
 
 //  const message = {
 // 		success: ElMessage.success,
 // 		error: ElMessage.error,
 // 	};
+console.log(import.meta.env);
+const baseURL = import.meta.env.VITE_HTTP_URL;
 
 // create an axios instance
 const request = axios.create({

@@ -1,12 +1,12 @@
 <!--
  * @Date: 2022-10-08 14:07:19
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-13 13:51:53
+ * @LastEditTime: 2022-11-29 11:26:40
  * @Description: 详情
  * @Task: 评论、停留时间
 -->
 <script lang="ts" setup>
-	import { Toast, PasswordInput } from 'vant';
+	// import { Toast, PasswordInput } from 'vant';
 	import { ReviewComment } from '@/apis/desensitize';
 	const { query }: any = useRoute();
 
