@@ -1,23 +1,22 @@
 /*
  * @Date: 2022-08-15 10:18:29
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-29 15:10:40
+ * @LastEditTime: 2022-11-29 15:25:35
  * @Description: 路由配置
  */
 import { createRouter, createWebHistory } from 'vue-router';
+
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+NProgress.configure({ showSpinner: false });
 
-// 引入展馆所有页面
+// 引入展馆的所有页面
 const venuePages = import.meta.glob('@/pages/venue/*.vue');
 
 const venueRoutes = Object.values(venuePages).map((importFn) => ({
 	path: '/' + importFn.name.split('/').at(-1).split('.')[0],
 	component: importFn,
 }));
-
-console.log(venueRoutes);
-NProgress.configure({ showSpinner: false });
 
 const router = createRouter({
 	history: createWebHistory(),
