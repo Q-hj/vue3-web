@@ -1,14 +1,14 @@
 <!--
  * @Date: 2022-10-25 10:27:38
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-11 11:56:33
+ * @LastEditTime: 2022-11-29 15:58:36
  * @Description: 
 -->
 <script lang="ts" setup>
 	const { makers } = defineProps<{
 		makers?: any[];
 	}>();
-
+	// console.log($attrs);
 	let map: any;
 
 	onMounted(() => initMap());
@@ -85,11 +85,10 @@
 </script>
 
 <template>
-	<div class="w-full h-full">
+	<div :class="$attrs.class || 'w-full h-full'">
 		<div
-			class="map-canvas"
 			id="map-canvas"
-			style="width: 100%; height: 100%"
+			class="w-full h-full"
 		></div>
 	</div>
 </template>

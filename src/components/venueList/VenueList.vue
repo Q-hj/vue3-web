@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-10-08 09:55:32
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-03 10:15:39
+ * @LastEditTime: 2022-11-29 15:27:10
  * @Description: 场馆列表
 -->
 <script lang="ts" setup>
@@ -75,7 +75,5 @@
 <style lang="less" scoped>
 	li {
 		box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.3);
-		article {
-		}
 	}
 </style>
