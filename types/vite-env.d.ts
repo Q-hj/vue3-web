@@ -1,8 +1,8 @@
 /*
  * @Date: 2022-10-08 09:19:25
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-29 11:57:43
- * @Description:
+ * @LastEditTime: 2022-11-29 13:54:36
+ * @Description: 全局声明
  */
 /// <reference types="vite/client" />
 
@@ -19,9 +19,11 @@ interface ImportMetaEnv {
 	BASE_URL: string;
 	DEV: boolean;
 	PROD: boolean;
-	SSR: boolean;
 	MODE: string | Mode;
-	readonly NODE_ENV: Mode;
+	SSR: boolean;
+	// readonly NODE_ENV: Mode;
+	readonly VITE_USER_NODE_ENV: Mode;
+	readonly VITE_HTTP_URL: string;
 }
 
 interface ImportMeta {
