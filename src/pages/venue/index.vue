@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-09-30 11:23:23
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-13 13:53:17
+ * @LastEditTime: 2022-11-29 14:11:08
  * @Description: 首页
 -->
 <script lang="ts" setup>
@@ -45,7 +45,7 @@
 					@click="toListPage"
 					class="text-xs"
 				>
-					<span>查看更多</span><van-icon name="arrow" />
+					<span>查看更多</span><icon-right />
 				</p>
 			</nav>
 			<VenueList
