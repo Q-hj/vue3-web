@@ -11,12 +11,6 @@ declare module '@vue/runtime-core' {
     Map: typeof import('./../src/components/map/map.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    VanButton: typeof import('vant/es')['Button']
-    VanField: typeof import('vant/es')['Field']
-    VanIcon: typeof import('vant/es')['Icon']
-    VanImage: typeof import('vant/es')['Image']
-    VanPopup: typeof import('vant/es')['Popup']
-    VanSpace: typeof import('vant/es')['Space']
     VenueList: typeof import('./../src/components/venueList/VenueList.vue')['default']
   }
 }

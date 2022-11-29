@@ -14,10 +14,17 @@
 		"noEmit": true,
 		"types": ["vite/client"],
 		"paths": {
-			"@/*": ["src/*"],
-			"#/*": ["config/*"]
+			"@/*": ["./src/*"],
+			"#/*": ["./config/*"]
 		}
 	},
-	"include": ["types/*.ts", "types/*.d.ts", "src/**/*.vue", "src/pages/**/*.vue"],
+	"include": [
+		"types/*.ts",
+		"types/*.d.ts",
+		"src/**/*.vue",
+		"src/pages/**/*.vue",
+		"config/**/*.ts",
+		"config/*.ts"
+	],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-11-21 22:25:53
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-21 23:33:30
+ * @LastEditTime: 2022-11-29 10:57:51
  * @Description:
  */
 import { resolve } from 'path';
@@ -20,7 +20,7 @@ import importsListen, { imports } from 'vite-plugin-vue-autoimportconfigextend';
 
 import { ArcoResolver } from 'unplugin-vue-components/resolvers';
 
-import { proxy } from '#/vite/proxy';
+import { proxy } from './config/vite/proxy';
 
 export default defineConfig(({ command, mode }) => {
 	const env = loadEnv(mode, process.cwd(), ''); //环境变量
