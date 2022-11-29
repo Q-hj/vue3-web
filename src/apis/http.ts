@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-08-10 14:19:08
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-29 11:52:34
+ * @LastEditTime: 2022-11-29 14:01:17
  * @Description: 请求的封装
  */
 
@@ -21,7 +21,8 @@ import { proxyList, Proxy, ProxyUrl } from '../../config/vite/proxy';
 // 		success: ElMessage.success,
 // 		error: ElMessage.error,
 // 	};
-console.log(import.meta.env);
+
+// console.log(import.meta.env);
 const baseURL = import.meta.env.VITE_HTTP_URL;
 
 // create an axios instance
@@ -43,44 +44,28 @@ const transformBody = (data: any) => {
 // 发送请求前的统一处理。。。
 request.interceptors.request.use(
 	(request: any) => {
-		// 设置全局加载状态  列表加载 ， 提交，
-		// store.commit("showLoading");
-
 		// do something before request is sent
+
 		// 设置请求头
 		request.headers.get['Content-Type'] = 'application/json'; //默认json格式
-		// request.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-		// ['isRelease', 'makeAudio', '/menu/delete'].forEach((path) => {
-		// 	if (request.url.includes(path)) request.params = request.data;
-		// });
+
 		if (request.method == 'post' && request.url.includes('baidu')) {
 			request.headers['Content-Type'] = 'application/x-www-form-urlencoded';
 		}
 
 		// 请求头中添加token
 		const token = sessionStorage.getItem('token');
-		const Authorization = sessionStorage.getItem('Authorization');
-
 		token && (request.headers['token'] = token);
 
-		if (Authorization) {
-			request.headers['Authorization'] = 'Bearer ' + Authorization;
-			request.headers['X-client-id'] = 'SQKJ_TEST';
-
-			// 在参数中添加token
-			// request.params = { ...request.params, token };
-			// request.data = { ...request.data, token };
-		}
+		// 表单格式
 		// if (request.url.includes('delete'))
 		// 	request.transformRequest = [transformBody];
 
 		return request;
 	},
 	(error) => {
-		// store.commit("hideLoading");
-
 		// do something with request error
-		// 假如发送请求失败
+
 		console.log(error); // for debug
 		// return Promise.reject(error)
 		return Promise.reject(new Error('网络异常'));
@@ -91,7 +76,6 @@ request.interceptors.request.use(
 // 请求后的处理
 request.interceptors.response.use(
 	(response) => {
-		// store.commit("hideLoading");
 		const res = response.data;
 		const { url } = response.config;
 
@@ -188,10 +172,10 @@ const isProxyUrl = (url: string): url is ProxyUrl =>
  * @param {boolean} loading 是否请求中
  */
 const handleRequest: RequestFunction = (
-	url,
-	method,
-	params,
-	word,
+	url: string,
+	method: string,
+	params: any,
+	word: string,
 	loading: any = {}
 ): Promise<any> => {
 	// params = { ...params, createtime: undefined, modifytime: undefined };
