@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-09-30 09:35:09
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-29 14:19:23
+ * @LastEditTime: 2022-11-30 14:14:39
  * @Description: 入口文件
  */
 
@@ -16,6 +16,8 @@ import router from './router/index.js';
 import ArcoVue from '@arco-design/web-vue';
 import ArcoVueIcon from '@arco-design/web-vue/es/icon';
 import '@arco-design/web-vue/dist/arco.css';
+
+import '@/apis/wxLogin.js'; //微信登录
 
 createApp(App)
 	.use(router)

@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-08-15 10:18:29
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-29 15:25:35
+ * @LastEditTime: 2022-11-30 13:52:27
  * @Description: 路由配置
  */
 import { createRouter, createWebHistory } from 'vue-router';
@@ -24,12 +24,13 @@ const router = createRouter({
 		{
 			path: '/login',
 			name: '登录',
-			component: () => import('@/pages/venue/index.vue'),
+			component: () => import('@/pages/login/login.vue'),
 		},
 		{
 			path: '/layout',
 			name: '数字展馆',
-			component: () => import('@/pages/venue/index.vue'),
+			component: () => import('@/pages/layout/layout.vue'),
+			redirect: '/index',
 			children: venueRoutes,
 		},
 		{
