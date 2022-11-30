@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-09-30 09:35:09
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-30 10:12:48
+ * @LastEditTime: 2022-11-30 10:14:13
  * @Description: 描述文件
 -->
 # Vue 3 + TypeScript + Vite + arco-design
@@ -25,7 +25,7 @@
 
 ## 🏷️任务
 
-- [x]新增二级路由
-- [x]整体布局调整
+- []新增二级路由
+- [ ]整体布局调整
 - [x]页面重构
 - [x]对接微信登录
