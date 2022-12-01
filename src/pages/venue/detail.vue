@@ -1,12 +1,12 @@
 <!--
  * @Date: 2022-10-08 14:07:19
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-29 11:26:40
+ * @LastEditTime: 2022-12-01 17:49:57
  * @Description: 详情
  * @Task: 评论、停留时间
 -->
 <script lang="ts" setup>
-	// import { Toast, PasswordInput } from 'vant';
+	import { Message } from '@arco-design/web-vue';
 	import { ReviewComment } from '@/apis/desensitize';
 	const { query }: any = useRoute();
 
@@ -21,16 +21,12 @@
 	const loading = ref<boolean>(false);
 	const commentPopup = ref<boolean>(false);
 
-	const onLoadMore = () => {
-		commentList.value = [];
-	};
-
 	// 评论
 	const onIssue = async () => {
-		if (!comment.value) return Toast('请填写评论！');
+		if (!comment.value) return Message.warning('请填写评论！');
 		// 敏感词汇处理
-		const flag = true || (await ReviewComment(comment.value));
-		if (!flag) return Toast.fail('内容存在敏感词汇！');
+		// const flag = true || (await ReviewComment(comment.value));
+		// if (!flag) return Message.error('内容存在敏感词汇！');
 		const params = {
 			pavilionId: venue.id,
 			pavilionName: venue.name,
@@ -43,11 +39,11 @@
 		};
 		post('/mini/addComments', params)
 			.then((res: any) => {
-				Toast.success('评论已提交！管理员审核后即可查看');
+				Message.success('评论已提交！管理员审核后即可查看');
 				commentPopup.value = false;
 				comment.value = '';
 			})
-			.catch(() => Toast.success('评论失败！'));
+			.catch(() => Message.success('评论失败！'));
 	};
 
 	// 虚拟展馆
@@ -63,25 +59,24 @@
 	};
 	const onValidPassword = () => {
 		// if (!venue.password) return handleEnter();
-		if (!password.value) return Toast.fail('请输入密码！');
+		if (!password.value) return Message.error('请输入密码！');
 		if (password.value == venue.password) return handleEnter();
-		Toast.fail('密码错误！');
+		Message.error('密码错误！');
 	};
 
-	// 用户跳转720停留时长埋点
 	let standingTime = 0;
-	const isBackFrom720 = sessionStorage.getItem('from720') || false;
-	// if (isBackFrom720)
-	// 	post('/mini/addStandingTime', {
-	// 		pavilionId: venue.id,
-	// 		time: standingTime,
-	// 	});
+	const timer = setInterval(() => standingTime++, 1000);
+	onBeforeUnmount(() => {
+		post('/mini/addStandingTime', {
+			pavilionId: venue.id,
+			time: standingTime,
+		});
+		clearInterval(timer);
+	});
 
 	const handleEnter = (path: URL = venue.path) => {
 		window.open(path);
 		sessionStorage.setItem('from720', '1');
-
-		setInterval(() => standingTime++, 1000);
 	};
 
 	// 意见反馈
@@ -93,7 +88,7 @@
 		value: '',
 	});
 	const onFeedback = () => {
-		if (!feedback.value) return Toast.fail('请填写反馈！');
+		if (!feedback.value) return Message.error('请填写反馈！');
 		const params = {
 			content: feedback.value,
 			pavilionId: venue.id,
@@ -110,21 +105,15 @@
 
 <template>
 	<section>
-		<header class="py-4">
+		<div class="w-1000px mx-auto pt-45px max-h-calc(100vh-350px)">
 			<img
 				:src="venue.url"
 				alt=""
 			/>
-		</header>
-		<div class="warp">
 			<main>
-				<header>
-					<p class="title">展馆介绍</p>
-				</header>
-				<article
-					class="py-5 leading-7"
-					v-html="venue.synopsis"
-				></article>
+				<p class="font-bold text-18px leading-50px">展馆介绍</p>
+
+				<p class="indent-2em">{{ venue.synopsis }}</p>
 			</main>
 			<footer>
 				<header class="between-center pb-8">
@@ -138,10 +127,7 @@
 						@click="commentPopup = true"
 						class="text-sm"
 					>
-						写评论<van-icon
-							size="1.2rem"
-							name="edit"
-						/>
+						写评论<icon-edit />
 					</p>
 				</header>
 				<!-- 评论列表 -->
@@ -168,6 +154,7 @@
 				</ul>
 
 				<van-popup
+					v-if="false"
 					v-model:show="commentPopup"
 					close-icon="close"
 					class="w-4/5 py-3"
@@ -275,19 +262,4 @@
 	</section>
 </template>
 
-<style lang="less" scoped>
-	footer {
-		.title {
-			min-width: 5rem;
-			position: relative;
-			&::after {
-				content: attr(data-text);
-				position: absolute;
-				top: calc(100% + 3px);
-				left: 0;
-				font-size: 0.5rem;
-				color: #acacac;
-			}
-		}
-	}
-</style>
+<style lang="less" scoped></style>
