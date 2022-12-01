@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-10-08 09:55:32
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-29 15:27:10
+ * @LastEditTime: 2022-12-01 16:46:15
  * @Description: 场馆列表
 -->
 <script lang="ts" setup>
@@ -31,45 +31,39 @@
 </script>
 
 <template>
-	<section>
-		<ul class="pb-1">
-			<li
+	<ul class="pb-1 w-full">
+		<li
+			class="mb-50px w-full"
+			v-for="(item, index) in _list"
+			:key="index"
+		>
+			<img
 				@click="toDetail(item)"
-				class="mb-8"
-				v-for="(item, index) in _list"
-				:key="index"
-			>
-				<div>
-					<img
-						:src="item.url"
-						class="h-50vw"
-						alt=""
-					/>
-				</div>
-				<article class="px-3 py-2">
-					<p class="text-sm mb-3 font-bold">{{ item.name }}</p>
-					<p class="text-sm mb-3 truncate">{{ item.synopsis }}</p>
-					<div class="text-xs text-dark-400 flex justify-between">
-						<div class="address">
-							<van-icon
-								name="location"
-								color="#4b9fff"
-							/>{{ item.location }}
-						</div>
-						<div class="favour flex-shrink-0 pl-2">
-							<van-icon
-								color="#4b9fff"
-								@click.stop="onFavour(item, index)"
-								:name="'good-job' + (item.liked ? '' : '-o')"
-								size="1rem"
-							/>
-							<span class="">{{ item.likeNum || 0 }}</span>
-						</div>
+				:src="item.url"
+				class="w100% h-400px cursor-pointer"
+				alt=""
+			/>
+
+			<article class="px-20px">
+				<p class="font-bold text-18px leading-50px">{{ item.name }}</p>
+				<p class="indent-2em">{{ item.synopsis }}</p>
+				<div class="flex justify-between py-15px">
+					<div class="address">
+						<icon-location class="text-blue-500" />
+						{{ item.location }}
 					</div>
-				</article>
-			</li>
-		</ul>
-	</section>
+					<div class="flex-shrink-0">
+						<component
+							@click.stop="onFavour(item, index)"
+							:is="item.liked ? 'icon-thumb-up-fill' : 'icon-thumb-up'"
+							class="!text-blue-500 text-16px cursor-pointer"
+						/>
+						<span class="pl-5px">{{ item.likeNum || 0 }}</span>
+					</div>
+				</div>
+			</article>
+		</li>
+	</ul>
 </template>
 
 <style lang="less" scoped>

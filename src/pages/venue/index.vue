@@ -1,14 +1,12 @@
 <!--
  * @Date: 2022-09-30 11:23:23
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-12-01 15:14:43
+ * @LastEditTime: 2022-12-01 16:26:14
  * @Description: 首页
 -->
 <script lang="ts" setup>
 	import MyMap from '@/components/map/map.vue';
 	import VenueList from '@/components/venueList/VenueList.vue';
-	// import list from './venue';
-
 	const venueList = ref<Venue[]>([]);
 	const router = useRouter();
 
@@ -31,29 +29,40 @@
 </script>
 
 <template>
-	<section class="full between-center bg-dark-50">
+	<section class="full between-center">
 		<MyMap
 			ref="map"
 			class="w-1/2 h-full"
 			:makers="venueList"
 		/>
-		<div class="w-48%">
-			<nav class="between-center py-3">
-				<p class="title">展馆浏览</p>
+		<a-layout class="full !px-30px">
+			<a-layout-header class="between-center h-50px">
+				<p class="text-18px">展馆浏览</p>
 
-				<p
-					@click="toListPage"
-					class="text-xs"
-				>
-					<span>查看更多</span><icon-right />
-				</p>
-			</nav>
-			<!-- <VenueList
-				class="w-full"
+				<a-link @click="toListPage">查看更多<icon-right /></a-link
+			></a-layout-header>
+			<a-layout-content class="max-h-[calc(100vh-50px-150px)] overflow-scroll"
+				><VenueList
+					class="w-full flex-1"
+					v-if="venueList.length"
+					:list="venueList.slice(0, endIndex)"
+			/></a-layout-content>
+		</a-layout>
+		<div
+			v-if="false"
+			class="flex-1 full px-30px flex flex-col"
+		>
+			<header class="between-center h-50px">
+				<p class="text-18px">展馆浏览</p>
+
+				<a-link @click="toListPage">查看更多<icon-right /></a-link>
+			</header>
+			<VenueList
+				class="w-full flex-1"
 				v-if="venueList.length"
 				:list="venueList.slice(0, endIndex)"
-			/> -->
-			<p
+			/>
+			<!-- <p
 				v-show="venueList.length > endIndex"
 				class="w-48% h-10 flex-center text-sky-500"
 			>
@@ -63,7 +72,7 @@
 					class="text-xs"
 					>查看更多</span
 				>
-			</p>
+			</p> -->
 		</div>
 	</section>
 </template>

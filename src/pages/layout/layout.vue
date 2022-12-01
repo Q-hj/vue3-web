@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-09-30 09:35:09
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-12-01 15:17:43
+ * @LastEditTime: 2022-12-01 15:22:46
  * @Description: 主视图
 -->
 
@@ -20,7 +20,7 @@
 				>
 			</div>
 		</a-layout-header>
-		<a-layout-content class="warp"
+		<a-layout-content class="warp bg-light-100"
 			><router-view
 				class="router-view"
 				v-slot="{ Component }"

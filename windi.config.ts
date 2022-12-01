@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-09-27 14:13:32
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-12-01 15:12:55
+ * @LastEditTime: 2022-12-01 16:00:48
  * @Description:
  */
 import { defineConfig } from 'windicss/helpers';
