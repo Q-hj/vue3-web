@@ -13,3 +13,14 @@
         background: linear-gradient(to right, #ff0707, transparent);
     }
 }
+
+
+// 弥补windicss没有设置边框方向的类
+@direction: left, right, top, bottom;
+
+each(@direction, {
+    .border-@{value} {
+        border-width: 0 !important;
+        border-@{value}-width: unset !important;
+    }
+});

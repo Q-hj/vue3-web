@@ -7,6 +7,9 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ALayout: typeof import('@arco-design/web-vue')['Layout']
+    ALayoutContent: typeof import('@arco-design/web-vue')['LayoutContent']
+    ALayoutHeader: typeof import('@arco-design/web-vue')['LayoutHeader']
     GaodeMap: typeof import('./../src/components/map/gaodeMap.vue')['default']
     Map: typeof import('./../src/components/map/map.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

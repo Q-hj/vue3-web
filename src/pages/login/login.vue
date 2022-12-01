@@ -1,10 +1,13 @@
 <!--
  * @Date: 2022-11-30 11:35:18
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-12-01 11:39:50
+ * @LastEditTime: 2022-12-01 13:50:20
  * @Description: 
 -->
 <script lang="ts" setup>
+	const { push } = useRouter();
+
+	const { DEV } = import.meta.env;
 	const wxLoginUrl =
 		'https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code';
 
@@ -21,6 +24,8 @@
 			style: 'black',
 			// href: '',
 		});
+
+		if (DEV) push('/index');
 	});
 </script>
 

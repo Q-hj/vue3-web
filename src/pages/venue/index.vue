@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-09-30 11:23:23
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-29 15:45:00
+ * @LastEditTime: 2022-12-01 15:14:43
  * @Description: 首页
 -->
 <script lang="ts" setup>
@@ -31,16 +31,13 @@
 </script>
 
 <template>
-	<section class="w-full between-center">
+	<section class="full between-center bg-dark-50">
 		<MyMap
 			ref="map"
-			class="w-1/2 h-100vh"
+			class="w-1/2 h-full"
 			:makers="venueList"
 		/>
-		<div
-			class="w-48%"
-			v-if="false"
-		>
+		<div class="w-48%">
 			<nav class="between-center py-3">
 				<p class="title">展馆浏览</p>
 
@@ -51,11 +48,11 @@
 					<span>查看更多</span><icon-right />
 				</p>
 			</nav>
-			<VenueList
+			<!-- <VenueList
 				class="w-full"
 				v-if="venueList.length"
 				:list="venueList.slice(0, endIndex)"
-			/>
+			/> -->
 			<p
 				v-show="venueList.length > endIndex"
 				class="w-48% h-10 flex-center text-sky-500"

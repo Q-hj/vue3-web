@@ -1,10 +1,10 @@
 /*
  * @Date: 2022-08-15 10:18:29
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-30 13:52:27
+ * @LastEditTime: 2022-12-01 11:54:45
  * @Description: 路由配置
  */
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
 
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
@@ -19,7 +19,7 @@ const venueRoutes = Object.values(venuePages).map((importFn) => ({
 }));
 
 const router = createRouter({
-	history: createWebHistory(),
+	history: createWebHashHistory(),
 	routes: [
 		{
 			path: '/login',
@@ -36,7 +36,7 @@ const router = createRouter({
 		{
 			path: '/:pathMatch(.*)*',
 			name: '404',
-			redirect: '/index',
+			redirect: '/login',
 		},
 	],
 });
