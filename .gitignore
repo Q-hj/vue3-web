@@ -8,8 +8,10 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+exhibition-web
 dist
 dist-ssr
+*.zip
 *.local
 .env.*
 

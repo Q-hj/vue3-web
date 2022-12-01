@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-11-30 11:35:18
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-30 14:11:28
+ * @LastEditTime: 2022-12-01 11:39:50
  * @Description: 
 -->
 <script lang="ts" setup>
@@ -14,9 +14,9 @@
 			id: 'wxCode',
 			appid: 'wx205cd1187819ea10',
 			scope: 'snsapi_login',
-			// redirect_uri: encodeURIComponent(window.location.origin),
+			redirect_uri: encodeURIComponent(window.location.origin),
 
-			redirect_uri: encodeURIComponent('http://192.168.0.115' + '/login'),
+			// redirect_uri: encodeURIComponent('http://192.168.0.115' + '/login'),
 			state: Math.ceil(Math.random() * 1000),
 			style: 'black',
 			// href: '',

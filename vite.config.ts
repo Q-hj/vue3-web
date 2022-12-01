@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-11-21 22:25:53
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-29 13:51:25
+ * @LastEditTime: 2022-12-01 11:42:16
  * @Description:
  */
 import { resolve } from 'path';
@@ -26,12 +26,13 @@ export default defineConfig(({ command, mode }) => {
 	const env = loadEnv(mode, process.cwd(), ''); //环境变量
 
 	const isDev = env.NODE_ENV == 'dev';
+	const isProd = env.NODE_ENV == 'prod';
 
 	console.log(isDev ? '正在启动...' : '正在打包...');
 	return {
 		base: './',
 		build: {
-			outDir: 'exhibition-h5',
+			outDir: isProd ? 'exhibition-web' : 'dist',
 		},
 		server: {
 			port: 8080,
