@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-10-25 10:27:38
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-29 15:58:36
+ * @LastEditTime: 2022-12-02 11:11:32
  * @Description: 
 -->
 <script lang="ts" setup>
@@ -24,7 +24,7 @@
 
 	const setMakerWindow = ({ name, repositoryNum }: Venue, target: any) => {
 		makerWindow.setContent(
-			"<div> <div class='p-0'>" +
+			"<div> <div class='px-0 py-px text-14px'>" +
 				`<p class=''>${name}</p>` +
 				`<p class=''>资源数量：${repositoryNum || 0}</p>` +
 				'' +
@@ -58,6 +58,7 @@
 			);
 			maker.on('mouseover', ({ lnglat, target, originalEvent }: any) => {
 				setMakerWindow(other, target);
+				// console.log(other);
 				return;
 				const { clientX, clientY } = originalEvent;
 				[popuopX, popuopY] = [clientX, clientY];
@@ -75,7 +76,7 @@
 	const getMarkerOptions = (iconUrl: string = defaultIcon) =>
 		iconUrl
 			? {
-					icon: new T.Icon({ iconUrl, iconSize: new T.Point(30, 30) }),
+					icon: new T.Icon({ iconUrl, iconSize: new T.Point(40, 40) }),
 			  }
 			: null;
 	defineExpose({

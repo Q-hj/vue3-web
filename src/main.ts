@@ -1,12 +1,12 @@
 /*
  * @Date: 2022-09-30 09:35:09
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-30 14:14:39
+ * @LastEditTime: 2022-12-02 14:57:57
  * @Description: 入口文件
  */
 
-import './styles/index.less';
 import 'virtual:windi.css';
+import './styles/index.less';
 
 import App from '@/pages/App.vue';
 import { createApp } from 'vue';

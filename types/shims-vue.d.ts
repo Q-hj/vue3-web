@@ -1,9 +1,14 @@
 /*
  * @Date: 2022-10-08 14:15:33
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-11-21 22:42:14
+ * @LastEditTime: 2022-12-02 14:46:38
  * @Description: 类型声明
  */
+
+interface Popup {
+	open: boolean;
+	value: any;
+}
 
 interface Venue {
 	id: string;
