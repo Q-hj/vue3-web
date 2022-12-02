@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-10-25 10:27:38
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-12-02 11:11:32
+ * @LastEditTime: 2022-12-02 16:31:17
  * @Description: 
 -->
 <script lang="ts" setup>
@@ -86,7 +86,10 @@
 </script>
 
 <template>
-	<div :class="$attrs.class || 'w-full h-full'">
+	<div
+		class="p-0px"
+		:class="$attrs.class || 'w-full h-full'"
+	>
 		<div
 			id="map-canvas"
 			class="w-full h-full"

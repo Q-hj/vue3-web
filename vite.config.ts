@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-11-21 22:25:53
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-12-01 15:03:01
+ * @LastEditTime: 2022-12-02 16:08:17
  * @Description:
  */
 import { resolve } from 'path';
@@ -91,7 +91,8 @@ export default defineConfig(({ command, mode }) => {
 				less: {
 					charset: false,
 					modifyVars: {
-						'arcoblue-6': '#f85959',
+						'arcoblue-6': '242, 102, 66',
+						'primary-6': '242, 102, 66',
 					},
 					javascriptEnabled: true,
 					// additionalData: '@import "@/styles/common.less";',
