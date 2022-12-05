@@ -22,6 +22,7 @@ declare module '@vue/runtime-core' {
     ALink: typeof import('@arco-design/web-vue')['Link']
     AModal: typeof import('@arco-design/web-vue')['Modal']
     AOption: typeof import('@arco-design/web-vue')['Option']
+    AResult: typeof import('@arco-design/web-vue')['Result']
     ASelect: typeof import('@arco-design/web-vue')['Select']
     ASpace: typeof import('@arco-design/web-vue')['Space']
     ATextarea: typeof import('@arco-design/web-vue')['Textarea']

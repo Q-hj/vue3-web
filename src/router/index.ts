@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-08-15 10:18:29
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-12-05 10:14:33
+ * @LastEditTime: 2022-12-05 15:45:27
  * @Description: 路由配置
  */
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
@@ -22,11 +22,6 @@ const router = createRouter({
 	history: createWebHashHistory(),
 	routes: [
 		{
-			path: '/login',
-			name: '登录',
-			component: () => import('@/pages/login/login.vue'),
-		},
-		{
 			path: '/layout',
 			name: '数字展馆',
 			component: () => import('@/pages/layout/layout.vue'),
@@ -34,9 +29,18 @@ const router = createRouter({
 			children: venueRoutes,
 		},
 		{
-			path: '/:pathMatch(.*)*',
+			path: '/login',
+			name: '登录',
+			component: () => import('@/pages/login/login.vue'),
+		},
+		{
+			path: '/404',
 			name: '404',
-			redirect: '/login',
+			component: () => import('@/pages/error/404.vue'),
+		},
+		{
+			path: '/:pathMatch(.*)*',
+			redirect: '/404',
 		},
 	],
 });

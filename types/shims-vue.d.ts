@@ -1,8 +1,8 @@
 /*
  * @Date: 2022-10-08 14:15:33
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-12-02 14:46:38
- * @Description: 类型声明
+ * @LastEditTime: 2022-12-05 15:10:29
+ * @Description: 业务类型声明
  */
 
 interface Popup {
