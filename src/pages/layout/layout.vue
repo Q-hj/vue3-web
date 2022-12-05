@@ -1,26 +1,27 @@
 <!--
  * @Date: 2022-09-30 09:35:09
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-12-02 17:47:34
+ * @LastEditTime: 2022-12-05 10:01:19
  * @Description: 主视图
 -->
 
 <template>
 	<a-layout class="full-screen min-w-1200px bg-cover gap-20px !p-30px">
 		<a-layout-header class="">
-			<div
-				@click="router.push('/index')"
-				class="warp pb-12px cursor-pointer border-bottom border-5 border-red-600 flex items-center"
-			>
-				<img
-					class="w-70px"
-					src="@/assets/images/logo.png"
-					alt=""
-				/>
-				<span
-					class="text-yellow-200 text-34px font-bold tracking-2px text-shadow-1 text-stroke-1 text-stroke-red-600"
-					>数字展馆</span
-				>
+			<div class="warp pb-12px border-bottom border-5 border-red-600 between-center">
+				<div class="flex items-center">
+					<img
+						class="w-70px"
+						src="@/assets/images/logo.png"
+						alt=""
+					/>
+					<span
+						@click="router.push('/index')"
+						class="text-yellow-200 cursor-pointer text-34px font-bold tracking-2px text-shadow-1 text-stroke-1 text-stroke-red-600"
+						>数字展馆</span
+					>
+				</div>
+				<div class="flex items-center"><p class="text-yellow-300">用户9434</p></div>
 			</div>
 		</a-layout-header>
 		<a-layout-content class="warp bg-light-100"
@@ -41,6 +42,8 @@
 		transitionName: 'slide-left',
 	});
 	router.beforeEach((to: any, from: any) => {
+		// state.transitionName = 'slide-left';
+		return;
 		if (to.meta.index > from.meta.index) {
 			state.transitionName = 'slide-left'; // 向左滑动
 		} else if (to.meta.index < from.meta.index) {
