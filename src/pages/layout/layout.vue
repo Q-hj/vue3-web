@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-09-30 09:35:09
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-12-05 10:01:19
+ * @LastEditTime: 2022-12-05 10:12:46
  * @Description: 主视图
 -->
 
@@ -21,7 +21,14 @@
 						>数字展馆</span
 					>
 				</div>
-				<div class="flex items-center"><p class="text-yellow-300">用户9434</p></div>
+				<div class="flex items-center">
+					<a-dropdown @select="handleSelect">
+						<p class="text-yellow-300 cursor-pointer">用户9434</p>
+						<template #content>
+							<a-doption :value="{ path: '/login' }">退出</a-doption>
+						</template>
+					</a-dropdown>
+				</div>
 			</div>
 		</a-layout-header>
 		<a-layout-content class="warp bg-light-100"
@@ -38,6 +45,10 @@
 
 <script setup lang="ts">
 	const router = useRouter();
+
+	const handleSelect = ({ path }: any) => {
+		if (path) router.push(path);
+	};
 	const state = reactive({
 		transitionName: 'slide-left',
 	});

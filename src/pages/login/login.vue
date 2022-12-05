@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-11-30 11:35:18
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-12-01 13:50:20
+ * @LastEditTime: 2022-12-05 10:15:28
  * @Description: 
 -->
 <script lang="ts" setup>
@@ -25,7 +25,7 @@
 			// href: '',
 		});
 
-		if (DEV) push('/index');
+		// if (DEV) push('/index');
 	});
 </script>
 

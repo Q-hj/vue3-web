@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-08-15 10:18:29
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-12-01 11:54:45
+ * @LastEditTime: 2022-12-05 10:14:33
  * @Description: 路由配置
  */
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
@@ -43,8 +43,6 @@ const router = createRouter({
 
 //路由跳转开始
 router.beforeEach((to: any, from) => {
-	if (to.name) document.title = to.name;
-
 	NProgress.start();
 	// instead of having to check every route record with
 	// to.matched.some(record => record.meta.requiresAuth)
@@ -61,7 +59,8 @@ router.beforeEach((to: any, from) => {
 	}
 });
 //路由跳转结束
-router.afterEach(() => {
+router.afterEach((to: any, from) => {
+	if (to.name) document.title = to.name;
 	NProgress.done(); // finish progress bar
 });
 export default router;
