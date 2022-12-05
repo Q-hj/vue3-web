@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-11-30 11:35:18
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-12-05 10:15:28
+ * @LastEditTime: 2022-12-05 10:16:40
  * @Description: 
 -->
 <script lang="ts" setup>
@@ -30,7 +30,7 @@
 </script>
 
 <template>
-	<section class="full bg-gray-200">
+	<section class="full-screen bg-gray-200">
 		<div class="full flex-center">
 			<div
 				id="wxCode"
