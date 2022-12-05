@@ -1,32 +1,62 @@
 <!--
  * @Date: 2022-11-30 11:35:18
  * @LastEditors: Mr.qin
- * @LastEditTime: 2022-12-05 10:16:40
+ * @LastEditTime: 2022-12-05 15:01:03
  * @Description: 
 -->
 <script lang="ts" setup>
 	const { push } = useRouter();
 
 	const { DEV } = import.meta.env;
-	const wxLoginUrl =
-		'https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code';
+
+	// 微信登录配置
+	const config = {
+		appid: 'wx205cd1187819ea10',
+		scope: 'snsapi_login',
+		redirect_uri: encodeURIComponent('http://www.lianchengtech.com' || window.location.origin),
+		state: Math.ceil(Math.random() * 1000),
+		response_type: 'code',
+	};
 
 	onMounted(() => {
-		new WxLogin({
-			// self_redirect: true,
-			id: 'wxCode',
-			appid: 'wx205cd1187819ea10',
-			scope: 'snsapi_login',
-			redirect_uri: encodeURIComponent(window.location.origin),
-
-			// redirect_uri: encodeURIComponent('http://192.168.0.115' + '/login'),
-			state: Math.ceil(Math.random() * 1000),
-			style: 'black',
-			// href: '',
-		});
-
-		// if (DEV) push('/index');
+		if (window.location.search) {
+			// 已登录:-> 获取code
+			const code = window.location.search
+				.slice(1)
+				.split('&')
+				.filter((query) => query.includes('code'));
+			if (code[0]) getUserInfo(code);
+			else handleWxLogin(config);
+		} else {
+			// 未登录:-> 进行微信扫码
+			handleWxLogin(config);
+		}
 	});
+
+	// 方式1：将二维码生成在dom上
+	function handleWxLogin(config) {
+		new WxLogin({
+			id: 'wxCode',
+			style: 'black',
+			...config,
+		});
+	}
+
+	// 方式2：在新页面进行扫码
+	function handleWxLogin2(config) {
+		const wxLoginUrl = 'https://open.weixin.qq.com/connect/qrconnect';
+		const params = Object.entries(config)
+			.map((item) => item.join('='))
+			.join('&');
+
+		const loginUrl = wxLoginUrl + '?' + params;
+		window.open(loginUrl);
+	}
+
+	function getUserInfo(code) {
+		console.log('code:' + code);
+		//   push('/index');
+	}
 </script>
 
 <template>
