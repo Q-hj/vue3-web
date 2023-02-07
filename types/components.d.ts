@@ -27,6 +27,8 @@ declare module '@vue/runtime-core' {
     ASpace: typeof import('@arco-design/web-vue')['Space']
     ATextarea: typeof import('@arco-design/web-vue')['Textarea']
     GaodeMap: typeof import('./../src/components/map/gaodeMap.vue')['default']
+    IconDocumentation: typeof import('./../src/components/icons/IconDocumentation.vue')['default']
+    IconTooling: typeof import('./../src/components/icons/IconTooling.vue')['default']
     Map: typeof import('./../src/components/map/map.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
